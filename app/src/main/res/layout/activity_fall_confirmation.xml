@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/background"
+    tools:context=".ui.FallConfirmationActivity">
+
+    <TextView
+        android:id="@+id/tv_title_confirm"
+        android:layout_width="320dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="250dp"
+        android:fontFamily="@font/sf_b"
+        android:text="Gerak jatuh terdeteksi!"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.Atlas.Headline1"
+        android:textColor="@color/text_primary" />
+
+    <TextView
+        android:id="@+id/tv_desc_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/sf"
+        android:text="Tekan tombol di bawah kalau alarm ini keliru."
+        android:textAlignment="center"
+        android:textColor="@color/text_secondary" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/false_fall_button"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        android:layout_width="199dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/sf"
+        android:text="Aku Ngga Jatuh"
+        android:textAppearance="@style/TextAppearance.Atlas.Body2"
+        android:textColor="@color/text_primary"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/ic_arrow_forward"
+        app:iconTint="@color/text_primary"
+        app:iconGravity="textEnd"
+        app:strokeColor="@color/text_primary" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/true_fall_button"
+        android:layout_width="199dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/secondary"
+        android:text="Aku Jatuh"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.Atlas.Body2"
+        android:textColor="@color/text_on_button"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/ic_arrow_forward"
+        app:iconTint="@color/primary"
+        app:iconGravity="textEnd" />
+
+    <TextView
+        android:id="@+id/tv_countdown_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Konfirmasi Otomatis Dalam:"
+        android:fontFamily="@font/sf"
+        android:textAppearance="@style/TextAppearance.Atlas.Body2"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/tv_countdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:hint="00:58"
+        android:textColorHint="@color/text_secondary"
+        android:fontFamily="@font/sf"
+        android:textAlignment="center"/>
+
+</LinearLayout>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Atlas</string>
+
+    <!-- Onboarding -->
+    <string name="onboarding_title">Halo! Aku Atlas</string>
+    <string name="onboarding_description">Atlas adalah aplikasi rekomendasi jalur pendakian gunung Sibayak.</string>
+    <string name="onboarding_button">Mulai Menjelajah</string>
+    <string name="onboarding_terms">Terms of Usage</string>
+    <string name="onboarding_image_desc">Ilustrasi pendaki dengan peta</string>
+
+    <!-- Input Activity -->
+    <string name="atlas_logo">Atlas Logo</string>
+    <string name="kontak_darurat">Kontak Darurat</string>
+    <string name="kontak_darurat_desc">Atlas butuh kontak darurat untuk dihubungi kalo terjadi kecelakaan ke kamu</string>
+    <string name="nomor_kontak_darurat">Nomor Kontak Darurat</string>
+    <string name="data_pendaki">Data Pendaki</string>
+    <string name="data_pendaki_desc">Bantu isi data di bawah biar Atlas bisa rekomendasiin kamu jalur terbaik</string>
+    <string name="input_title">Kamu lagi sakit ga?</string>
+    <string name="kondisi_fisik">Kondisi Fisik</string>
+    <string name="input_title_2">Udah pernah mendaki belum?</string>
+    <string name="pengalaman_mendaki">Pengalaman Mendaki</string>
+    <string name="dropdown_kondisi_fisik_kurang_fit">Kurang fit, baru sembuh sakit, kecapean di perjalanan</string>
+    <string name="dropdown_kondisi_fisik_cukup_fit">Cukup fit, kondisi biasa aja, ga segar bugar, tapi cukup semangat lah</string>
+    <string name="dropdown_kondisi_fisik_segar_bugar">Segar bugar, semua medan bisa dilaluin</string>
+    <string name="dapatkan_rekomendasi">Dapatkan Rekomendasi</string>
+
+    <!-- Terms and Condition -->
+    <string name="terms_title">Sepakat dulu, yuk!</string>
+    <string name="terms_desc_p1">
+        Jalur pendakian yang Atlas rekomendasiin ini dibuat berdasarkan data yang kamu masukin, ya! Tapi tetep, keselamatan di lapangan ada di tangan kamu. Jadi, selalu waspada, ikutin insting, dan jangan lupa dengerin tubuh kamu sendiri. Atlas bantu, tapi kamu tetap kaptennya!
+    </string>
+    <string name="terms_desc_p2">
+        Atlas bantuin kamu milih jalur pendakian terbaik berdasarkan kondisi tubuh kamu, pengalaman mendaki kamu, dan kondisi cuaca di gunung Sibayak. Ini dilakuin untuk ngejauhin kamu dari risiko AMS (Acute Mountain Sickness) yang berpotensi bikin kamu kecelakaan di gunung.
+    </string>
+    <string name="terms_desc_p3">
+        Atlas bakalan akses sensor akselerometer di hp kamu buat jagain kamu. Sensor akselerometer ini ngasih tau Atlas kalau kamu kecelakaan seperti jatuh lalu ngirim pesan ke kontak darurat kamu.
+    </string>
+    <string name="terms_desc_p4">
+        Tenang aja, data kontak darurat kamu Atlas simpan baik-baik.
+    </string>
+
+
+    <!-- Emergency Contact Screen -->
+    <string name="emergency_contact_title">Kontak Darurat</string>
+    <string name="emergency_contact_subtitle">Masukkan nomor telepon kontak darurat yang akan dihubungi jika terjadi keadaan darurat</string>
+    <string name="emergency_contact_1_hint">Kontak Darurat 1</string>
+    <string name="emergency_contact_2_hint">Kontak Darurat 2</string>
+    <string name="sar_contact_hint">Kontak Tim SAR</string>
+    <string name="save_contacts">Lanjut</string>
+
+    <!-- Result Screen -->
+    <string name="result_head">Jalur yang Atlas rekomendasiin adalah...</string>
+    <string name="start_exploring">Mulai Monitoring</string>
+</resources>

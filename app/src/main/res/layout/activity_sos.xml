@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@android:color/white"
+    tools:context=".ui.SosActivity">
+
+    <ImageView
+        android:id="@+id/sos_icon"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_sos_alarm"
+        app:tint="@color/text_SOS" />
+
+    <TextView
+        android:id="@+id/tv_sos_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/sf_b"
+        android:text="SOS"
+        android:textColor="@color/text_SOS"
+        android:textSize="80sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_sos_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="40dp"
+        android:fontFamily="@font/sf"
+        android:text="Atlas udah coba kirim titik lokasi terakhir pendaki ini ke kontak darurat."
+        android:textAlignment="center"
+        android:textColor="@color/text_SOS"
+        android:textSize="16sp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btn_help_pendaki"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:backgroundTint="@color/text_SOS"
+        android:fontFamily="@font/sf"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="12dp"
+        android:text="Bantu Pendaki Ini"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:cornerRadius="10dp"
+        app:icon="@drawable/ic_arrow_forward"
+        app:iconGravity="textEnd"
+        app:iconTint="@android:color/white" />
+
+    <TextView
+        android:id="@+id/tv_countdown_sos_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/sf"
+        android:text="Pendaki ini udah jatuh selama :"
+        android:textColor="@color/text_SOS"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_countdown_sos_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/sf"
+        android:text="05:39"
+        android:textColor="@color/text_SOS"
+        android:textAppearance="@style/TextAppearance.Atlas.Body2" />
+
+</LinearLayout>
