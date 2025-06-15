@@ -1,8 +1,13 @@
 package com.example.atlas.ui
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Color
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.view.View
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.atlas.R
 import org.osmdroid.config.Configuration
@@ -15,10 +20,12 @@ import javax.xml.parsers.SAXParserFactory
 
 class MapsActivity : AppCompatActivity() {
     private lateinit var mapView: MapView
+    private lateinit var tvJalur54: TextView
     private val polyline = Polyline().apply {
         outlinePaint.color = Color.RED
         outlinePaint.strokeWidth = 5f
     }
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +37,7 @@ class MapsActivity : AppCompatActivity() {
         )
 
         mapView = findViewById(R.id.mapView)
+        tvJalur54 = findViewById(R.id.tv_jalur_54)
         mapView.setTileSource(TileSourceFactory.MAPNIK)
         mapView.setMultiTouchControls(true)
 
@@ -37,8 +45,26 @@ class MapsActivity : AppCompatActivity() {
     }
 
     private fun loadGpxFile() {
+        sharedPreferences = getSharedPreferences("PredictionPrefs", Context.MODE_PRIVATE)
+        val prediction = intent.getStringExtra("PREDICTION") ?: sharedPreferences.getString("last_prediction", "Silahkan kembali ke halaman input")
+        
+        if (prediction == "Jalur 54") {
+            mapView.visibility = View.GONE
+            tvJalur54.visibility = View.VISIBLE
+            return
+        }
+
+        mapView.visibility = View.VISIBLE
+        tvJalur54.visibility = View.GONE
+        
         try {
-            val inputStream: InputStream = resources.openRawResource(R.raw.jaranguda)
+            val gpxResource = when (prediction) {
+                "via Semangat Gunung" -> R.raw.semangat_gunung
+                "via Jaranguda" -> R.raw.jaranguda
+                else -> R.raw.jaranguda
+            }
+            
+            val inputStream: InputStream = resources.openRawResource(gpxResource)
             val parser = SAXParserFactory.newInstance().newSAXParser()
             val handler = GpxHandler()
             parser.parse(inputStream, handler)
@@ -90,4 +116,6 @@ class GpxHandler : org.xml.sax.helpers.DefaultHandler() {
             isTrackPoint = false
         }
     }
+
+
 }

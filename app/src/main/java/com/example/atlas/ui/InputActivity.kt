@@ -87,13 +87,13 @@ class InputActivity : AppCompatActivity() {
                     "sunny", "clear", "partly cloudy" -> 1
                     "rain", "light rain", "moderate rain", "heavy rain" -> 2
                     else -> {
-                        weatherStatus.text = "Kondisi cuaca tidak sesuai untuk pendakian: ${weatherResponse.current.condition.text}"
+                        weatherStatus.text = "Kondisi cuaca : ${weatherResponse.current.condition.text}"
                         return@launch
                     }
                 }
                 weatherStatus.text = "Kondisi cuaca: ${weatherResponse.current.condition.text}"
             } catch (e: Exception) {
-                weatherStatus.text = "Error mengambil data cuaca: ${e.message}"
+                weatherStatus.text = "Gagal mendapatkan data cuaca"
                 Toast.makeText(this@InputActivity, "Gagal mengambil data cuaca. Silakan coba lagi.", Toast.LENGTH_SHORT).show()
             } finally {
                 weatherLoading.visibility = ProgressBar.GONE

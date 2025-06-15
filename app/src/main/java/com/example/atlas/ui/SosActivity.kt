@@ -6,10 +6,9 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.Button
 import android.widget.TextView
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import com.example.atlas.R
-import java.text.SimpleDateFormat
-import java.util.*
 
 class SosActivity : AppCompatActivity() {
     private lateinit var tvCountdownSosTime: TextView
@@ -20,22 +19,19 @@ class SosActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
         setContentView(R.layout.activity_sos)
 
-        // Initialize views
         tvCountdownSosTime = findViewById(R.id.tv_countdown_sos_time)
         btnHelpPendaki = findViewById(R.id.btn_help_pendaki)
 
-        // Start count up timer
         startTime = System.currentTimeMillis()
         startCountUpTimer()
 
-        // Setup help button
         btnHelpPendaki.setOnClickListener {
-            navigateToRescued()
+            navigateToFinish()
         }
 
-        // Start alarm sound
         startAlarmSound()
     }
 
@@ -52,7 +48,7 @@ class SosActivity : AppCompatActivity() {
             }
 
             override fun onFinish() {
-                // This won't be called as we're using Long.MAX_VALUE
+                // TODO
             }
         }.start()
     }
@@ -67,8 +63,8 @@ class SosActivity : AppCompatActivity() {
         }
     }
 
-    private fun navigateToRescued() {
-        val intent = Intent(this, RescuedActivity::class.java)
+    private fun navigateToFinish() {
+        val intent = Intent(this, FinishActivity::class.java)
         startActivity(intent)
         finish()
     }
