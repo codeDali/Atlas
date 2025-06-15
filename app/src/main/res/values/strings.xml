@@ -52,4 +52,5 @@
     <!-- Result Screen -->
     <string name="result_head">Jalur yang Atlas rekomendasiin adalah...</string>
     <string name="start_exploring">Mulai Monitoring</string>
+    <string name="jalur_54_maps">Maaf, Atlas belum bisa menampilkan visualisasi untuk Jalur 54 dikarenakan Jalur 54 adalah jalur tersulit dan medannya berupa hutan. Atlas sarankan ikut rombongan pendaki yang akan lewat jalur 54 demi keselamatan kamu. Stay Safe!</string>
 </resources>

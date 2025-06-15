@@ -20,11 +20,9 @@ class ResultActivity : AppCompatActivity() {
 
         sharedPreferences = getSharedPreferences("PredictionPrefs", Context.MODE_PRIVATE)
 
-        // Get prediction from intent or SharedPreferences
         val prediction = intent.getStringExtra("PREDICTION") ?: sharedPreferences.getString("last_prediction", "Silahkan kembali ke halaman input")
         binding.predictionText.text = prediction
 
-        // Save prediction to SharedPreferences
         sharedPreferences.edit().putString("last_prediction", prediction).apply()
 
         binding.toMapsButton.setOnClickListener {

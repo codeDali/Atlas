@@ -21,9 +21,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="Jalur 54 tidak tersedia dalam peta karena merupakan jalur yang tidak resmi dan berbahaya. Silahkan gunakan jalur resmi via Semangat Gunung atau Jaranguda."
+        android:text="@string/jalur_54_maps"
         android:textAlignment="center"
-        android:textColor="@color/text_primary"
+        android:textColor="@color/primary"
+        android:fontFamily="@font/sf_b"
         android:textSize="16sp"
         android:padding="24dp"
         android:visibility="gone"
@@ -32,10 +33,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+
+
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btn_monitor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:padding="20dp"
+        android:backgroundTint="@color/primary"
+        app:icon="@drawable/fall"
+        app:iconSize="24dp"
+        android:text="Start Monitoring"
+        android:fontFamily="@font/sf"
+        android:textColor="@color/text_primary"
+        app:iconGravity="textEnd"
+        app:iconTint="@color/secondary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>

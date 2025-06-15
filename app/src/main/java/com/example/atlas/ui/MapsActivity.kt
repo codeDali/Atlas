@@ -7,9 +7,12 @@ import android.graphics.Color
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.view.View
+import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.atlas.R
+import com.example.atlas.ml.FallDetectionManager
 import org.osmdroid.config.Configuration
 import org.osmdroid.tileprovider.tilesource.TileSourceFactory
 import org.osmdroid.util.GeoPoint
@@ -21,11 +24,13 @@ import javax.xml.parsers.SAXParserFactory
 class MapsActivity : AppCompatActivity() {
     private lateinit var mapView: MapView
     private lateinit var tvJalur54: TextView
+    private lateinit var btnMonitor: Button
     private val polyline = Polyline().apply {
         outlinePaint.color = Color.RED
         outlinePaint.strokeWidth = 5f
     }
     private lateinit var sharedPreferences: SharedPreferences
+    private lateinit var fallDetectionManager: FallDetectionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,10 +43,34 @@ class MapsActivity : AppCompatActivity() {
 
         mapView = findViewById(R.id.mapView)
         tvJalur54 = findViewById(R.id.tv_jalur_54)
+        btnMonitor = findViewById(R.id.btn_monitor)
         mapView.setTileSource(TileSourceFactory.MAPNIK)
         mapView.setMultiTouchControls(true)
 
+        // Initialize FallDetectionManager
+        fallDetectionManager = FallDetectionManager(this)
+
+        btnMonitor.setOnClickListener {
+            if (!fallDetectionManager.isActive()) {
+                startMonitoring()
+            } else {
+                stopMonitoring()
+            }
+        }
+
         loadGpxFile()
+    }
+
+    private fun startMonitoring() {
+        fallDetectionManager.startMonitoring()
+        btnMonitor.text = "Stop Monitoring"
+        Toast.makeText(this, "Monitoring gerak jatuh dimulai", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun stopMonitoring() {
+        fallDetectionManager.stopMonitoring()
+        btnMonitor.text = "Start Monitoring"
+        Toast.makeText(this, "Monitoring gerak jatuh dihentikan", Toast.LENGTH_SHORT).show()
     }
 
     private fun loadGpxFile() {
@@ -90,6 +119,9 @@ class MapsActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
+        if (fallDetectionManager.isActive()) {
+            stopMonitoring()
+        }
         mapView.onPause()
     }
 }

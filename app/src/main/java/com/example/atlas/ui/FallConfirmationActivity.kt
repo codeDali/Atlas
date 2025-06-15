@@ -63,11 +63,17 @@ class FallConfirmationActivity : AppCompatActivity() {
         val contact2 = sharedPrefs.getString("contact2", null)
 
         val currentTime = SimpleDateFormat("dd/MM/yyyy HH:mm:ss", Locale.getDefault()).format(Date())
+        val location = getCurrentLocation()
+        
+        val locationInfo = if (location != null) {
+            "Lokasi: ${location.latitude}, ${location.longitude} (ketinggian: ${location.altitude} meter)"
+        } else {
+            "Lokasi tidak tersedia"
+        }
         
         val message = "Pendaki ini telah mendaftarkan anda ke kontak darurat, " +
-                     "pendaki kemungkinan terjatuh di gunung Sibayak " +
-                     "pada $currentTime *pesan ini dikirim secara otomatis*"
-
+                     "pendaki kemungkinan terjatuh di gunung Sibayak pada titik $locationInfo " +
+                     "pada $currentTime.  *pesan ini dikirim secara otomatis*"
 
         contact1?.let { phoneNumber ->
             Log.d("SMS_DEBUG", "Mencoba mengirim SMS ke: $phoneNumber")
