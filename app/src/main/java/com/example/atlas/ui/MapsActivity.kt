@@ -77,20 +77,21 @@ class MapsActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences("PredictionPrefs", Context.MODE_PRIVATE)
         val prediction = intent.getStringExtra("PREDICTION") ?: sharedPreferences.getString("last_prediction", "Silahkan kembali ke halaman input")
         
-        if (prediction == "Jalur 54") {
-            mapView.visibility = View.GONE
-            tvJalur54.visibility = View.VISIBLE
-            return
-        }
-
-        mapView.visibility = View.VISIBLE
-        tvJalur54.visibility = View.GONE
+//        if (prediction == "Jalur 54") {
+//            mapView.visibility = View.GONE
+//            tvJalur54.visibility = View.VISIBLE
+//            return
+//        }
+//
+//        mapView.visibility = View.VISIBLE
+//        tvJalur54.visibility = View.GONE
         
         try {
             val gpxResource = when (prediction) {
                 "via Semangat Gunung" -> R.raw.semangat_gunung
                 "via Jaranguda" -> R.raw.jaranguda
-                else -> R.raw.jaranguda
+                "Jalur 54" -> R.raw.jalur_54
+                else -> R.raw.semangat_gunung
             }
             
             val inputStream: InputStream = resources.openRawResource(gpxResource)

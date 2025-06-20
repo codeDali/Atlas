@@ -20,6 +20,7 @@ class FinishActivity : AppCompatActivity() {
         backToHomeButton.setOnClickListener {
             val intent = Intent(this, OnboardingActivity::class.java)
             startActivity(intent)
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TASK
             finish()
         }
     }

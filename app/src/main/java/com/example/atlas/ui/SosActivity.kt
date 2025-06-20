@@ -66,6 +66,7 @@ class SosActivity : AppCompatActivity() {
     private fun navigateToFinish() {
         val intent = Intent(this, FinishActivity::class.java)
         startActivity(intent)
+        intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
         finish()
     }
 

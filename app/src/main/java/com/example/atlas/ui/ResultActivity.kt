@@ -23,6 +23,11 @@ class ResultActivity : AppCompatActivity() {
         val prediction = intent.getStringExtra("PREDICTION") ?: sharedPreferences.getString("last_prediction", "Silahkan kembali ke halaman input")
         binding.predictionText.text = prediction
 
+        if (prediction == "Jalur 54") {
+            binding.predictionDescription.text = "Visualisasi peta khusus jalur ini adalah estimasi, bukan visualisasi resmi, sebaiknya ikuti rombongan atau gunakan pemandu lokal"
+        }
+
+
         sharedPreferences.edit().putString("last_prediction", prediction).apply()
 
         binding.toMapsButton.setOnClickListener {
@@ -33,9 +38,12 @@ class ResultActivity : AppCompatActivity() {
 
         binding.testBtn.setOnClickListener{
             val intent = Intent(this, FallConfirmationActivity::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP
+            intent.flags = Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
+            finish()
         }
+
+
     }
 
     companion object {
